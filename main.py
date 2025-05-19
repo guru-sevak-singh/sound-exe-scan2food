@@ -1,8 +1,14 @@
+'''
+This code is used to listen the websocket and play the audio
+and this code is used in production also
+and now it has fixes some more issue whether the inter is disconnected.
+'''
+
 import asyncio
 import websockets
 import json
 
-import os
+import time
 
 from datetime import datetime
 from play_audio import *
@@ -124,4 +130,9 @@ async def listen_orders():
 
 # Run the WebSocket listener
 while True:
-    asyncio.run(listen_orders())
+    try:
+        asyncio.run(listen_orders())
+    except:
+        pass
+        # Reconnect to the server if any error occurs
+        time.sleep(5)

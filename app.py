@@ -1,3 +1,13 @@
+'''
+this exe pla the sound when order is received and it play the sound by reading the text
+using text to speach library
+name pyttsx3
+and this code of exe is not used for the real production
+because of some compatibility issues
+and the code which run in all the system is in main.py file
+
+'''
+
 import asyncio
 import websockets
 import json
