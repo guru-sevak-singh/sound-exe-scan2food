@@ -89,10 +89,10 @@ async def listen_orders():
                 data = json.loads(data)
 
                 if str(data['theatre_id']) == theatre_id:
-                    print('\ntheatre id and selected id are same.....!\n')
+                    # print('\ntheatre id and selected id are same.....!\n')
                     test_message = data["message"]
                     
-                    if "New Order Come From" in test_message:    
+                    if "New Order Come From" in test_message:
                         # Generate and play the speech
                         seat_data = data['seat_name']
                         pending_orders = add_seat(seat_data)
@@ -115,9 +115,8 @@ async def listen_orders():
                     pending_orders = add_seat("")
                     if pending_orders != 0:
                         time_gap = get_time_difference()
-                        if "New Order Come From" in test_message:
-                            if time_gap > 5:
-                                pending_order()
+                        if time_gap > 5:
+                            pending_order()
 
 
                 
